@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Aplicacion1</string>
+    <string name="hintText">Nombre:</string>
+    <string name="heading">Content Provider</string>
+    <string name="insertButtontext">Insertar datos</string>
+    <string name="loadButtonText">Leer datos</string>
+</resources>

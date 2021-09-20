@@ -4,4 +4,5 @@
     <string name="heading">Content Provider</string>
     <string name="insertButtontext">Insertar datos</string>
     <string name="loadButtonText">Leer datos</string>
+    <string name="openAppButtonText">Abrir vcclaro</string>
 </resources>

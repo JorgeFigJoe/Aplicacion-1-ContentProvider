@@ -1,5 +1,6 @@
 package com.example.aplicacion1
 
+import android.content.ActivityNotFoundException
 import android.content.ContentValues
 import android.content.Context
 import android.net.Uri
@@ -11,6 +12,10 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import android.content.Intent
+
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,5 +65,23 @@ class MainActivity : AppCompatActivity() {
         } else {
             resultView.text = "Sin datos"
         }
+    }
+
+    fun onClickOpenApp(view: View?){
+        //com.yourconf.android
+        //com.example.aplicacion2
+        val intent = packageManager.getLaunchIntentForPackage("com.example.aplicacion2")
+        if(intent != null){
+            intent.putExtra("contentProviderID","content://com.demo1.user.provider/users")
+            intent!!.addCategory(Intent.CATEGORY_LAUNCHER)
+            startActivity(intent)
+        }else{
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.videoconferenciaclaro.android")))
+            } catch (e: ActivityNotFoundException) {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.videoconferenciaclaro.android")))
+            }
+        }
+
     }
 }
